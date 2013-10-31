@@ -1,0 +1,54 @@
+License:
+--------
+haploscore.py
+Copyright (C) 2013 23andMe, Inc.
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+If you have questions, please contact 23andMe, Inc. at
+1390 Shorebird Way, Mountain View, CA 94043.
+
+Program available for download at: 
+----------------------------------
+https://github.com/23andMe/ibd
+
+
+About:
+------
+haploscore.py is a standalone program for computing HaploScore, a haplotype-based
+metric that enables accurate IBD detection on population-scale datasets. It is
+designed to post-process IBD segments obtained by GERMLINE
+(http://www1.cs.columbia.edu/~gusev/germline/). The program was developed by
+Eric Y. Durand and Cory Y. McLean at 23andMe, Inc. 
+
+Usage:
+------
+For detailed usage instruction, run
+python haploscore.py --help
+
+Note that haplotype.py requires Python 2.7 and numpy 1.7.
+
+Required Input:
+---------------
+match        GERMLINE-formatted match file. The format is described on http://www1.cs.columbia.edu/~gusev/germline/
+ped_file     PLINK PED file containing the haplotypes used as input by GERMLINE
+map_file     PLINK MAP file containing the physical map for the markers included in the PED file. Must be in genome order
+
+Options:
+--------
+--genotype_error VALUE  Set the genotyping error rate per marker to VALUE
+--switch_error VALUE    Set the switch error rate per marker to VALUE
+-v, --verbose           Report progress to stderr
+-h, --help              Print help message
+
+Output:
+-------
+out_file  Output file. It is formatted like the match.gz file but contains an additional last column, the HaploScore value. 
