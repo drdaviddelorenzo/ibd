@@ -52,3 +52,12 @@ Options:
 Output:
 -------
 out_file  Output file. It is formatted like the match.gz file but contains an additional last column, the HaploScore value. 
+
+Testing:
+--------
+The test/ directory contains PLINK data as well as the expected GERMLINE results. 
+The following command
+
+python haploscore.py test/expected.match test/CEU.22.ped test/CEU.22.map test/myoutfile
+
+should produce test/myoutfile, identical to test/expected.match.scored
